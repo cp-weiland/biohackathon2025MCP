@@ -44,7 +44,7 @@ async def main():
     agent = MCPAgent(llm=llm, client=client, max_steps=20)
 
     # Give prompt to the agent
-    if true:
+    if True:
         text = await agent.run("Compute md5 hash for following string: 'Hello, Claus!' then count number of characters in first half of hash" \
                                 "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line")
     else:
