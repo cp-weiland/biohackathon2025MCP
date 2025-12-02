@@ -1,0 +1,12 @@
+# Source - https://stackoverflow.com/a
+# Posted by Piotr Dobrogost, modified by community. See post 'Timeline' for change history
+# Retrieved 2025-12-02, License - CC BY-SA 4.0
+
+# requirements.in
+fastmcp>=2.8.1
+httpx>=0.28.1
+langchain-ollama>=0.3.2
+loguru>=0.7.3
+mcp-use>=1.2.8
+mcp[cli]>=1.7.1
+
