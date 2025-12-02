@@ -44,13 +44,15 @@ async def main():
     agent = MCPAgent(llm=llm, client=client, max_steps=20)
 
     # Give prompt to the agent
-    text1 = await agent.run("Compute md5 hash for following string: 'Hello, Claus!' then count number of characters in first half of hash" \
-    "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line")
-    
-    text2 = "What is the current wind chill in the Mojave desert near Borrego Springs, reply in one brief sentence, don't tell me or investigate anything else, always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. List all tools used, provide this list in the last line"
-
+    if true:
+        text = await agent.run("Compute md5 hash for following string: 'Hello, Claus!' then count number of characters in first half of hash" \
+                                "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line")
+    else:
+        text = await agent.run("Give em  the current temperature in the Mojave desert near Borrego Springs, then provide the temperature in only one sentence."\
+        "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line.")
+ 
     #result = await agent.run(text1)
-    print("\n🔥 Result:", text1)          
+    print("\n🔥 Result:", text)          
 
     # Always clean up running MCP sessions
     await client.close_all_sessions()
