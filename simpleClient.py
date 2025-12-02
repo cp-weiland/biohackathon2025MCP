@@ -1,12 +1,15 @@
 import asyncio
 import os
+
+from loguru import logger
+
 from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient
 
 # Get the server script path (same directory as this file)
 current_dir = os.path.dirname(os.path.abspath(__file__))
-server_path = os.path.join(current_dir, "simpleServerHash.py")
-#server_path = os.path.join(current_dir, "simpleServerWeather.py")
+hash_server_path = os.path.join(current_dir, "simpleServerHash.py")
+weather_server_path = os.path.join(current_dir, "simpleServerWeather.py")
 
 # Describe which MCP servers you want.
 
@@ -14,24 +17,12 @@ CONFIG = {
     "mcpServers": {
         "hash": {
             "command": "uv",
-            "args": ["run", server_path]
-#            "args": [
-#                "--directory",
-#                ".",
-#                "run",
-#                "simpleServerHash.py"
-#            ]
+            "args": ["run", hash_server_path]
+        },
+        "weather": {
+            "command": "uv",
+            "args": ["run", weather_server_path]
         }
-#        ,
-#        "weather": {
- #           "command": "uv",
- #           "args": [
- #               "--directory",
- #               ".",
- #               "run",
- #               "simpleServerWeather.py"
- #           ]
- #       }
     }
 }
 
@@ -56,6 +47,6 @@ async def main():
 
     # Always clean up running MCP sessions
     await client.close_all_sessions()
-
+        
 if __name__ == "__main__":
     asyncio.run(main())
