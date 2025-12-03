@@ -10,7 +10,7 @@ from mcp_use import MCPAgent, MCPClient
 current_dir = os.path.dirname(os.path.abspath(__file__))
 hash_server_path = os.path.join(current_dir, "simpleServerHash.py")
 weather_server_path = os.path.join(current_dir, "simpleServerWeather.py")
-sparql_server_path = os.path.join(current_dir, "simpleServerSPARQL.py")
+sparql_server_path = os.path.join(current_dir, "simpleServerDBpedia.py")
 
 # Describe which MCP servers you want.
 
