@@ -26,7 +26,7 @@ mcp = FastMCP("SPARQL Query Server")
     
 query_doc = f"""
 FLOPOknb enables queries against flora data to be answered. Execute a SPARQL query via the FLOPOknb SPARQL endpoint using query_string in the 'argument' section below. Use the following query, don't change it:
-
+'
 PREFIX FLOPO: <http://purl.obolibrary.org/obo/FLOPO_>
 PREFIX RO: <http://purl.obolibrary.org/obo/RO_>
 
@@ -35,7 +35,8 @@ SELECT DISTINCT ?taxon_uri  ?species_name ?trait
     ?taxon_uri rdfs:label ?species_name ;
     RO:0002200 ?FLOPO_term .
     ?FLOPO_term rdfs:label ?trait .
-    }} }} LIMIT 5 
+    }} }} LIMIT 5
+'
 """
 
 @mcp.tool(description=query_doc)

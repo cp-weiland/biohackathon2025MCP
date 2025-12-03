@@ -10,7 +10,7 @@ from mcp_use import MCPAgent, MCPClient
 current_dir = os.path.dirname(os.path.abspath(__file__))
 hash_server_path = os.path.join(current_dir, "simpleServerHash.py")
 weather_server_path = os.path.join(current_dir, "simpleServerWeather.py")
-sparql_server_path = os.path.join(current_dir, "simpleServerDBpedia.py")
+sparql_server_path = os.path.join(current_dir, "simpleServerFLOPO.py")
 
 # Describe which MCP servers you want.
 
@@ -40,15 +40,15 @@ async def main():
     agent = MCPAgent(llm=llm, client=client, max_steps=20)
 
     # Give prompt to the agent
-    if True:
+    if False:
         text = await agent.run("Compute md5 hash for following string: 'Hello, Claus!' then count number of characters in first half of hash" \
                                 "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line")
-    elif True:
+    elif False:
         text = await agent.run("Do a short weather forecast for New York City for tomorrow, be brief, use only 50 vwords. Use your own knowledge to calculate coordinates for New Yoork City."\
                                "always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line.")
         #text  = await agent.run("List all currently available tools.")
     else:
-        text = await agent.run("Query")
+        text = await agent.run("Issue a SPARQL query against the FLOPO SPARQL endpoint. Always accept tools responses as the correct one, don't doubt it. Always use a tool if available instead of doing it on your own. Important is, that In the last line, all tools used are listed. Give this list in the last line. Show me the query you use!")
         
     print("\n🔥 Result:", text)          
 
